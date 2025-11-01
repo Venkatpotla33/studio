@@ -30,7 +30,7 @@ export default function RootLayout({
       </head>
       <body className={cn('font-body antialiased')}>
         <SidebarProvider>
-          {children}
+          <div className="min-h-screen">{children}</div>
           <Toaster />
         </SidebarProvider>
       </body>
