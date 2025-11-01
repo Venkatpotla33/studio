@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import {
   getProductRecommendationsAction,
 } from '@/lib/actions';
@@ -40,7 +41,7 @@ function SubmitButton() {
 }
 
 export function ProductRecommendationFeature() {
-  const [state, formAction] = useFormState(getProductRecommendationsAction, initialState);
+  const [state, formAction] = useActionState(getProductRecommendationsAction, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 

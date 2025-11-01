@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { analyzeSalesTrendsAction } from '@/lib/actions';
 import type { SalesTrendAnalysisAndPredictionOutput } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -39,7 +40,7 @@ function SubmitButton() {
 }
 
 export function SalesTrendFeature() {
-  const [state, formAction] = useFormState(analyzeSalesTrendsAction, initialState);
+  const [state, formAction] = useActionState(analyzeSalesTrendsAction, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 

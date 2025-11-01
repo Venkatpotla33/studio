@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { segmentCustomersAction } from '@/lib/actions';
 import type { CustomerSegmentationOutput } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -38,7 +39,7 @@ function SubmitButton() {
 }
 
 export function CustomerSegmentationFeature() {
-  const [state, formAction] = useFormState(segmentCustomersAction, initialState);
+  const [state, formAction] = useActionState(segmentCustomersAction, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 

@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { suggestNegotiationStrategyAction } from '@/lib/actions';
 import type { SuggestNegotiationStrategyOutput } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -38,7 +39,7 @@ function SubmitButton() {
 }
 
 export function AiNegotiationFeature() {
-  const [state, formAction] = useFormState(suggestNegotiationStrategyAction, initialState);
+  const [state, formAction] = useActionState(suggestNegotiationStrategyAction, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
